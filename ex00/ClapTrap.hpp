@@ -24,5 +24,7 @@ class ClapTrap {
 		unsigned int m_attackDamage;
 };
 
+std::ostream &operator<<(std::ostream &out, ClapTrap const &rhs);
+
 
 #endif

@@ -39,6 +39,12 @@ ClapTrap& ClapTrap::operator=(const ClapTrap &rhs) {
 	return *this;
 }
 
+std::ostream &operator<<(std::ostream &out, ClapTrap const &rhs) {
+
+	out << rhs.m_name;
+	return out;
+}
+
 void ClapTrap::attack(const std::string& target) {
 
 	if (m_hitPoints == 0 || m_energyPoints == 0)
@@ -52,6 +58,11 @@ void ClapTrap::attack(const std::string& target) {
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
+
+	if (m_hitPoints == 0) {
+		std::cout << m_name << " is dead" << std::endl;
+		return ;
+	}
 
 	if (amount > m_hitPoints)
 		amount = m_hitPoints;
@@ -67,8 +78,10 @@ void ClapTrap::takeDamage(unsigned int amount) {
 
 void ClapTrap::beRepaired(unsigned int amount) {
 
-	if (m_hitPoints == 0 || m_energyPoints == 0)
+	if (m_hitPoints == 0 || m_energyPoints == 0) {
+		std::cout << m_name << " can't be repaired" << std::endl;
 		return ;
+	}
 
 	m_energyPoints > 0 ? m_energyPoints-- : 0;
 	m_hitPoints + amount > 10 ? amount = 10 - m_hitPoints : 0;
