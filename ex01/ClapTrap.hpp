@@ -3,13 +3,15 @@
 
 #include <iostream>
 
+#define UINT32_MAX (4294967295U)
+
 class ClapTrap {
 
 	public:
 		ClapTrap();
 		ClapTrap(std::string name);
 		ClapTrap(ClapTrap const &src);
-		~ClapTrap();
+		virtual ~ClapTrap();
 
 		ClapTrap& operator=(ClapTrap const &rhs);
 

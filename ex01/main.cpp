@@ -19,8 +19,12 @@ int main() {
 
 	myNewFriend.attack("myFriend");
 	myNewFriend.takeDamage(5);
-	myNewFriend.beRepaired(100);
+	myNewFriend.beRepaired(UINT32_MAX);
+	myNewFriend.beRepaired(UINT32_MAX);
 	myNewFriend.takeDamage(200);
+	myNewFriend.takeDamage(UINT32_MAX);
+	myNewFriend.takeDamage(UINT32_MAX);
+	myNewFriend.guardGate();
 	std::cout << myNewFriend << std::endl;
 
 	ScavTrap copy(myNewFriend);

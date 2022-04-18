@@ -11,7 +11,7 @@ int main() {
 
 	FragTrap fragTrap("ZeepZop");
 
-	ClapTrap null(0);
+	FragTrap clapCopy(FragTrap("Jolly"));
 
 	myFriend.attack("the void");
 	myFriend.attack("himself");
@@ -19,7 +19,7 @@ int main() {
 	myFriend.takeDamage(1);
 	myEnemy.beRepaired(1);
 	myFriend.beRepaired(1);
-	myEnemy.beRepaired(-2000);
+	myEnemy.beRepaired(0);
 	myEnemy.takeDamage(100);
 
 	fragTrap.attack("villain");

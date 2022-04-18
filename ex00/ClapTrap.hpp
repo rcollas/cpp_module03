@@ -3,6 +3,8 @@
 
 #include <iostream>
 
+#define UINT32_MAX (4294967295U)
+
 class ClapTrap {
 
 	public:
@@ -16,6 +18,8 @@ class ClapTrap {
 		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
+
+		std::string getName() const;
 
 	private:
 		std::string m_name;

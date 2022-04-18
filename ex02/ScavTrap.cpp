@@ -21,6 +21,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
 ScavTrap::ScavTrap(const ScavTrap &src) : ClapTrap(src) {
 
 	std::cout << "\x1B[33mScavTrap " << m_name << " cloned\033[0m" << std::endl;
+	*this = src;
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &rhs) {

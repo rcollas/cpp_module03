@@ -2,6 +2,7 @@
 
 ScavTrap::ScavTrap() : ClapTrap() {
 
+	this->m_name = "";
 	this->m_hitPoints = 100;
 	this->m_energyPoints = 50;
 	this->m_attackDamage = 20;
@@ -18,7 +19,8 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
 
 ScavTrap::ScavTrap(const ScavTrap &src) : ClapTrap(src) {
 
-	std::cout << "ScavTrap " << m_name << " cloned" << std::endl;
+	std::cout << "ScavTrap " << *this << " cloned" << std::endl;
+	*this = src;
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &rhs) {
@@ -32,26 +34,26 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &rhs) {
 
 ScavTrap::~ScavTrap() {
 
-	std::cout << "ScavTrap " << m_name << " has been destroyed" << std::endl;
+	std::cout << "ScavTrap " << *this << " has been destroyed" << std::endl;
 }
 
 void ScavTrap::attack(const std::string &target) {
 
 	if (m_energyPoints == 0 || m_hitPoints == 0) {
-		std::cout << m_name << " can't attack" << std::endl;
+		std::cout << *this << " can't attack" << std::endl;
 		return ;
 	}
 
 	m_energyPoints > 0 ? m_energyPoints-- : 0;
 
-	std::cout << "ScavTrap " << m_name;
+	std::cout << "ScavTrap " << *this;
 	std::cout << " attacks and deals " << m_attackDamage;
 	std::cout << " damage to " << target << std::endl;
 }
 
 void ScavTrap::guardGate() {
 
-	std::cout << "ScavTrap " << m_name;
+	std::cout << "ScavTrap " << *this;
 	std::cout << " entered gate keeper mode" << std::endl;
 }
 
